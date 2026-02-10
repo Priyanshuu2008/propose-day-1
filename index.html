@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Promise Day 💞</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .page {
+        display: none;
+        text-align: center;
+        padding: 30px;
+        max-width: 520px;
+    }
+
+    .active {
+        display: block;
+    }
+
+    h1, h2 {
+        margin-bottom: 15px;
+    }
+
+    .typing {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        white-space: pre-line;
+        min-height: 160px;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        background: #fff;
+        color: #ff5f8a;
+        transition: 0.3s;
+        display: none;
+    }
+
+    button.show {
+        display: inline-block;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        background: #ffe6ee;
+    }
+
+    .heart {
+        position: absolute;
+        font-size: 22px;
+        animation: float 6s infinite ease-in-out;
+        opacity: 0.6;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="heart" style="top:10%; left:20%;">💖</div>
+<div class="heart" style="top:70%; left:80%;">💘</div>
+<div class="heart" style="top:35%; left:60%;">💕</div>
+
+<!-- PAGE 1 -->
+<div class="page active">
+    <h1>Happy Promise Day 💝</h1>
+    <div class="typing" data-text="aaj wale promises yaad hai joh maine kiye ?
+yaad hai toh theek hai
+aur nahi hai yaad toh fir niche click kro 💕"></div>
+    <button onclick="nextPage()">Click Here 💗</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <h2>Promise No. 1 🌸
+I'll Always Take Care of You</h2>
+    <div class="typing" data-text="mai teri care krunga iss duniya se 💞
+teri smile ki care krunga ki voh hmesha rahe 💖
+teri aankh m aansoo na aaye 😘
+mai care krunga ki mere behaviour se tu kabhi sad na ho 💗
+
+jitni bhi care hai sbb mai krunga teri
+kyuki tu sirf meri hai babyyy... 💕"></div>
+    <button onclick="nextPage()">Next Promise 💘</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+    <h2>Promise No. 2 💓
+My Love Will Always Grow More For You</h2>
+    <div class="typing" data-text="mai aaj ke 4 saal pehle jitna pyaar krta tha 💞
+aaj usse bhi zyada krta hu 😘
+aur aane wale jitne bhi saal hai
+mera pyaar sirf badhne wala hai 💖
+
+babbyyyyyy i love you the most 💕"></div>
+    <button onclick="nextPage()">One More 💝</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+    <h2>Promise No. 3 🤍
+My Support Will Always Be There</h2>
+    <div class="typing" data-text="on this promise i'm just promissing you 💖
+my support will always be there for you 💞
+chahe voh padhai ho 📚
+emotional ho 🤍
+whatever ho...
+
+i'll always support you 💕
+aur tere sath khada rhunga hmesha 💘"></div>
+    <h1>Always Yours 💖</h1>
+</div>
+
+<script>
+let pages = document.querySelectorAll('.page');
+let index = 0;
+
+function typeText(element, text, button) {
+    let i = 0;
+    element.innerHTML = "";
+    let interval = setInterval(() => {
+        element.innerHTML += text.charAt(i);
+        i++;
+        if (i >= text.length) {
+            clearInterval(interval);
+            if (button) button.classList.add("show");
+        }
+    }, 40);
+}
+
+function showTyping(page) {
+    let typingBox = page.querySelector('.typing');
+    let btn = page.querySelector('button');
+    typeText(typingBox, typingBox.dataset.text, btn);
+}
+
+showTyping(pages[0]);
+
+function nextPage() {
+    pages[index].classList.remove('active');
+    index++;
+    pages[index].classList.add('active');
+    showTyping(pages[index]);
+}
+</script>
+
+</body>
+</html>
