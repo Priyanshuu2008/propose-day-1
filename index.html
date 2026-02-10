@@ -6,143 +6,124 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background:#000;
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    overflow:hidden;
-}
-
-/* Pages */
-.page{
-    display:none;
-    text-align:center;
-    padding:30px;
-    max-width:520px;
-    z-index:2;
-}
-.active{display:block;}
-
-h1{
-    color:#ff9ecf;
-    text-shadow:0 0 10px #ff5fa2;
-}
-h2{
-    color:#ffd1e8;
-    text-shadow:0 0 8px #ff79b0;
-}
-
-.typing{
-    font-size:1.05rem;
-    line-height:1.7;
-    white-space:pre-line;
-    min-height:160px;
-    color:#fff;
-}
-
-button{
-    margin-top:25px;
-    padding:12px 30px;
-    border:none;
-    border-radius:25px;
-    font-size:1rem;
-    cursor:pointer;
-    background:#ff79b0;
-    color:#000;
-    display:none;
-    box-shadow:0 0 15px #ff79b0;
-    transition:.3s;
-}
-button.show{display:inline-block;}
-button:hover{transform:scale(1.08);}
-
-/* Fireflies */
-.firefly{
-    position:absolute;
-    width:6px;
-    height:6px;
-    background:radial-gradient(circle,#fffacd,#ffeb3b);
-    border-radius:50%;
-    opacity:.9;
-    animation:floatUp linear infinite, glow 2s ease-in-out infinite;
-}
-
-@keyframes floatUp{
-    from{
-        transform:translateY(0);
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        overflow: hidden;
     }
-    to{
-        transform:translateY(-120vh);
-    }
-}
 
-@keyframes glow{
-    0%,100%{box-shadow:0 0 6px #fffacd;}
-    50%{box-shadow:0 0 16px #ffeb3b;}
-}
+    .page {
+        display: none;
+        text-align: center;
+        padding: 30px;
+        max-width: 520px;
+    }
+
+    .active {
+        display: block;
+    }
+
+    h1, h2 {
+        margin-bottom: 15px;
+    }
+
+    .typing {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        white-space: pre-line;
+        min-height: 160px;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        background: #fff;
+        color: #ff5f8a;
+        transition: 0.3s;
+        display: none;
+    }
+
+    button.show {
+        display: inline-block;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        background: #ffe6ee;
+    }
+
+    .heart {
+        position: absolute;
+        font-size: 22px;
+        animation: float 6s infinite ease-in-out;
+        opacity: 0.6;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
 </style>
 </head>
 
 <body>
 
-<script>
-for(let i=0;i<30;i++){
-    let f=document.createElement("div");
-    f.className="firefly";
-    f.style.left=Math.random()*100+"vw";
-    f.style.top=(Math.random()*100)+"vh";
-    f.style.animationDuration=(6+Math.random()*8)+"s";
-    f.style.animationDelay=(Math.random()*5)+"s";
-    document.body.appendChild(f);
-}
-</script>
+<div class="heart" style="top:10%; left:20%;">💖</div>
+<div class="heart" style="top:70%; left:80%;">💘</div>
+<div class="heart" style="top:35%; left:60%;">💕</div>
 
 <!-- PAGE 1 -->
 <div class="page active">
-<h1>Happy Promise Day 💝</h1>
-<div class="typing" data-text="aaj wale promises yaad hai joh maine kiye ?
+    <h1>Happy Promise Day 💝</h1>
+    <div class="typing" data-text="aaj wale promises yaad hai joh maine kiye ?
 yaad hai toh theek hai
 aur nahi hai yaad toh fir niche click kro 💕"></div>
-<button onclick="nextPage()">Click Here 💗</button>
+    <button onclick="nextPage()">Click Here 💗</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page">
-<h2>Promise No. 1 🌸
+    <h2>Promise No. 1 🌸
 I'll Always Take Care of You</h2>
-<div class="typing" data-text="mai teri care krunga iss duniya se 💞
+    <div class="typing" data-text="mai teri care krunga iss duniya se 💞
 teri smile ki care krunga ki voh hmesha rahe 💖
 teri aankh m aansoo na aaye 😘
 mai care krunga ki mere behaviour se tu kabhi sad na ho 💗
 
 jitni bhi care hai sbb mai krunga teri
 kyuki tu sirf meri hai babyyy... 💕"></div>
-<button onclick="nextPage()">Next Promise 💘</button>
+    <button onclick="nextPage()">Next Promise 💘</button>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page">
-<h2>Promise No. 2 💓
+    <h2>Promise No. 2 💓
 My Love Will Always Grow More For You</h2>
-<div class="typing" data-text="mai aaj ke 4 saal pehle jitna pyaar krta tha 💞
+    <div class="typing" data-text="mai aaj ke 4 saal pehle jitna pyaar krta tha 💞
 aaj usse bhi zyada krta hu 😘
 aur aane wale jitne bhi saal hai
 mera pyaar sirf badhne wala hai 💖
 
 babbyyyyyy i love you the most 💕"></div>
-<button onclick="nextPage()">One More 💝</button>
+    <button onclick="nextPage()">One More 💝</button>
 </div>
 
 <!-- PAGE 4 -->
 <div class="page">
-<h2>Promise No. 3 🤍
+    <h2>Promise No. 3 🤍
 My Support Will Always Be There</h2>
-<div class="typing" data-text="on this promise i'm just promissing you 💖
+    <div class="typing" data-text="on this promise i'm just promissing you 💖
 my support will always be there for you 💞
 chahe voh padhai ho 📚
 emotional ho 🤍
@@ -150,35 +131,35 @@ whatever ho...
 
 i'll always support you 💕
 aur tere sath khada rhunga hmesha 💘"></div>
-<h1>Always Yours 💖</h1>
+    <h1>Always Yours 💖</h1>
 </div>
 
 <script>
-let pages=document.querySelectorAll('.page');
-let index=0;
+let pages = document.querySelectorAll('.page');
+let index = 0;
 
-function typeText(el,text,btn){
-    let i=0;
-    el.innerHTML="";
-    let t=setInterval(()=>{
-        el.innerHTML+=text.charAt(i);
+function typeText(element, text, button) {
+    let i = 0;
+    element.innerHTML = "";
+    let interval = setInterval(() => {
+        element.innerHTML += text.charAt(i);
         i++;
-        if(i>=text.length){
-            clearInterval(t);
-            if(btn)btn.classList.add("show");
+        if (i >= text.length) {
+            clearInterval(interval);
+            if (button) button.classList.add("show");
         }
-    },40);
+    }, 40);
 }
 
-function showTyping(p){
-    let t=p.querySelector('.typing');
-    let b=p.querySelector('button');
-    typeText(t,t.dataset.text,b);
+function showTyping(page) {
+    let typingBox = page.querySelector('.typing');
+    let btn = page.querySelector('button');
+    typeText(typingBox, typingBox.dataset.text, btn);
 }
 
 showTyping(pages[0]);
 
-function nextPage(){
+function nextPage() {
     pages[index].classList.remove('active');
     index++;
     pages[index].classList.add('active');
